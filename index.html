@@ -25,18 +25,26 @@
 
     <style>
         :root {
-            /* 👑 誰が見ても緑とわかる、シンプルなセージグリーン */
-            --sage-light: #e4efe4;
-            --sage-main: #729b79;
-            --sage-dark: #4a6b52;
+            /* 👑 【ここだけ！】この1色を変えるだけで、サイト全体の背景がグラデーション付きで変わります */
+            --main-bg-color: #dceae2; /* 現在は優しいセージグリーンにしています。赤にしたい場合は red など自由に変更できます */
+            
+            --sage-main: #87a99c;
+            --sage-dark: #5a7d6e;
             --text-main: #2d3748;
             --text-sub: #64748b;
             --card-bg: #ffffff;
         }
         
-        body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text-main); background-color: var(--sage-light); overflow-x: hidden; }
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+            color: var(--text-main); 
+            background-color: var(--main-bg-color); /* 👑 指定した1色で塗りつぶす */
+            overflow-x: hidden; 
+        }
         
-        /* 👑 背景のキラキラモーション（シンプルな緑のグラデーション） */
+        /* 👑 背景のキラキラとグラデーション効果 */
         #bg-particles { 
             position: fixed; 
             top: 0; 
@@ -45,10 +53,10 @@
             height: 100vh; 
             z-index: -1; 
             pointer-events: none; 
-            /* 薄い緑から少し濃い緑へのグラデーションを直接指定 */
-            background: linear-gradient(135deg, #e4efe4 0%, #c1d3c1 100%); 
+            /* 👑 ここがミソ！色を直接指定せず、「光（白）」と「影（少しの黒）」だけを上から被せてグラデーションを作ります */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.05) 100%); 
         }
-
+        
         .particle { position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.7); box-shadow: 0 0 12px rgba(255, 255, 255, 0.8); animation: float linear infinite; }
         @keyframes float { 0% { transform: translateY(100vh) scale(0.5); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(-10vh) scale(1.2); opacity: 0; } }
 
@@ -78,7 +86,7 @@
         .tool-btn { margin-top: auto; padding-top: 15px; color: var(--sage-main); font-weight: bold; font-size: 0.9rem; }
 
         .seo-section { background: white; border-radius: 16px; padding: 30px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); line-height: 1.8; }
-        .seo-section h3 { color: var(--sage-dark); font-size: 1.3rem; margin-top: 0; border-bottom: 2px solid var(--sage-light); padding-bottom: 10px; }
+        .seo-section h3 { color: var(--sage-dark); font-size: 1.3rem; margin-top: 0; border-bottom: 2px solid var(--main-bg-color); padding-bottom: 10px; }
         
         .adsense-container { text-align: center; margin: 40px 0; min-height: 250px; background-color: rgba(255, 255, 255, 0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--sage-main); }
     </style>
