@@ -23,7 +23,6 @@
   gtag('config', 'G-PGE5X15D8D');
 </script>
 
-
 <style>
 
 :root {
@@ -95,10 +94,13 @@ body {
 .seo-section h3 { color: var(--sage-dark); font-size: 1.3rem; margin-top: 0; border-bottom: 2px solid var(--main-bg-color); padding-bottom: 10px; }
 
 .adsense-container { text-align: center; margin: 40px 0; min-height: 250px; background-color: rgba(255, 255, 255, 0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--sage-main); }
-    
-    </style>
 
-    
+/* 👑 【追加】トップに戻るボタンのスタイル */
+.btn-top { position: fixed; bottom: 20px; right: 20px; background-color: var(--sage-main); color: white; width: 50px; height: 50px; border-radius: 50%; border: none; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 1000; transition: transform 0.2s, background-color 0.2s; }
+.btn-top:hover { background-color: var(--sage-dark); transform: translateY(-3px); }
+.btn-top:active { transform: scale(0.95); }
+</style>
+
 </head>
 <body>
 
@@ -134,7 +136,8 @@ body {
         <div class="tool-grid">
 
             <!-- 📦 ツール追加ブロック：まごころ介護施設ナビ -->
-            <a href="https://for-welfare.pray-power-is-god-and-cocoro.com/nursing-home/" class="tool-card fade-in">
+            <!-- 👑 修正: target="_blank" rel="noopener noreferrer" を追加して安全に新しいタブで開く -->
+            <a href="https://for-welfare.pray-power-is-god-and-cocoro.com/nursing-home/" target="_blank" rel="noopener noreferrer" class="tool-card fade-in">
                 <div class="tool-icon">🏥</div>
                 <div class="tool-title">まごころ介護施設ナビ</div>
                 <div class="tool-desc">特養・老健・有料老人ホーム・サ高住など、親の介護施設を「現在地から近い順」に検索。急な退院時の受け皿探しを優しくサポートします。</div>
@@ -143,7 +146,7 @@ body {
             <!-- 📦 ブロックここまで -->
 
             <!-- 📦 ツール追加ブロック：まごころ障害者グループホームナビ -->
-            <a href="https://for-welfare.pray-power-is-god-and-cocoro.com/happy-for-all/" class="tool-card fade-in">
+            <a href="https://for-welfare.pray-power-is-god-and-cocoro.com/happy-for-all/" target="_blank" rel="noopener noreferrer" class="tool-card fade-in">
                 <div class="tool-icon">🏡</div>
                 <div class="tool-title">障害者グループホームナビ</div>
                 <div class="tool-desc">「共同生活援助」の施設を近さで検索。将来の自立に向けた住まい探しや、相談支援専門員さんの業務効率化にお役立てください。</div>
@@ -152,7 +155,7 @@ body {
             <!-- 📦 ブロックここまで -->
 
             <!-- 📦 ツール追加ブロック：まごころ就労移行支援ナビ -->
-            <a href="https://for-welfare.pray-power-is-god-and-cocoro.com/employment-transition/" class="tool-card fade-in">
+            <a href="https://for-welfare.pray-power-is-god-and-cocoro.com/employment-transition/" target="_blank" rel="noopener noreferrer" class="tool-card fade-in">
                 <div class="tool-icon">🏢</div>
                 <div class="tool-title">まごころ就労移行支援ナビ</div>
                 <div class="tool-desc">一般企業への就職を目指す方向け。PCスキルやビジネスマナーを学べる近隣の就労移行支援事業所を検索できます（関東・関西）。</div>
@@ -161,7 +164,7 @@ body {
             <!-- 📦 ブロックここまで -->
 
             <!-- 📦 ツール追加ブロック：まごころ福祉施設ナビ（A・B・放デイ） -->
-            <a href="https://for-welfare.pray-power-is-god-and-cocoro.com/welfare-portal-AandB/" class="tool-card fade-in">
+            <a href="https://for-welfare.pray-power-is-god-and-cocoro.com/welfare-portal-AandB/" target="_blank" rel="noopener noreferrer" class="tool-card fade-in">
                 <div class="tool-icon">🤝</div>
                 <div class="tool-title">まごころ福祉施設ナビ</div>
                 <div class="tool-desc">就労継続支援A型・B型、および放課後等デイサービスの複数サービスをまたいで、一括で横断検索できるプロ仕様のポータルです（関東・関西）。</div>
@@ -170,7 +173,7 @@ body {
             <!-- 📦 ブロックここまで -->
 
             <!-- 📦 ツール追加ブロック：自立支援医療シミュレータ -->
-            <a href="https://for-welfare.pray-power-is-god-and-cocoro.com/independence-support/" class="tool-card fade-in">
+            <a href="https://for-welfare.pray-power-is-god-and-cocoro.com/independence-support/" target="_blank" rel="noopener noreferrer" class="tool-card fade-in">
                 <div class="tool-icon">💊</div>
                 <div class="tool-title">まごころ医療費シミュレータ</div>
                 <div class="tool-desc">精神科や心療内科の「お薬代・通院費」が安くなる自立支援医療（精神通院編）。3つの質問で、あなたの毎月の負担上限額の目安が15秒でわかります。</div>
@@ -203,22 +206,24 @@ body {
 
     </div>
 
+    <!-- 👑 【追加】トップに戻るボタン本体 -->
+    <button id="btnTop" class="btn-top" onclick="scrollToTop()">↑</button>
+
     <!-- 👑 JavaScript（背景モーションとスクロール検知） -->
     <script>
         // 1. セージ色の優しいキラキラ背景を動的に生成
         document.addEventListener("DOMContentLoaded", () => {
             const bg = document.getElementById('bg-particles');
-            const particleCount = 20; // 端末に負担をかけない適度な数
+            const particleCount = 20;
 
             for(let i = 0; i < particleCount; i++) {
                 const p = document.createElement('div');
                 p.className = 'particle';
-                // ランダムな位置、サイズ、アニメーション時間を設定
                 p.style.left = Math.random() * 100 + 'vw';
-                const size = Math.random() * 8 + 4; // 4px 〜 12px
+                const size = Math.random() * 8 + 4;
                 p.style.width = size + 'px';
                 p.style.height = size + 'px';
-                p.style.animationDuration = (Math.random() * 10 + 10) + 's'; // 10秒 〜 20秒
+                p.style.animationDuration = (Math.random() * 10 + 10) + 's';
                 p.style.animationDelay = (Math.random() * 10) + 's';
                 bg.appendChild(p);
             }
@@ -234,6 +239,20 @@ body {
 
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         });
+
+        // 👑 【追加】トップに戻るボタンの表示制御とスクロール処理
+        window.onscroll = function() {
+            const btnTop = document.getElementById("btnTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btnTop.style.display = "flex";
+            } else {
+                btnTop.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
