@@ -23,10 +23,11 @@
   gtag('config', 'G-PGE5X15D8D');
 </script>
 
-    <style>
+
+<style>
         :root {
             /* 👑 【ここだけ！】この1色を変えるだけで、サイト全体の背景がグラデーション付きで変わります */
-            --main-bg-color: #dde5d0; /* 現在は温かみのあるセージグリーン。赤なら red にするだけで一発で変わります */
+            --main-bg-color: #dde5d0; /* 現在は温かみのある優しいセージグリーン。赤なら red にするだけで一発で変わります */
             
             --sage-main: #87a99c;
             --sage-dark: #5a7d6e;
@@ -34,23 +35,29 @@
             --text-sub: #64748b;
             --card-bg: #ffffff;
         }
+
+        /* 👑 改善適用：グラデーション効果（光と影）を html 要素に「半透明フィルム」として重ねます */
+        html {
+            background: linear-gradient(
+                160deg,
+                rgba(255, 255, 255, 0.45) 0%,
+                rgba(255, 255, 255, 0) 40%,
+                rgba(0, 0, 0, 0.04) 100%
+            );
+        }
         
-        /* 👑 修正: bodyに直接グラデーションを設定し、color-mixで自動追従させる（最強の解決策） */
+        /* 👑 改善適用: bodyはシンプルに1色の単色（background-color）で確実に塗りつぶし、画面下まで届くように min-height を設定 */
         body { 
             margin: 0; 
             padding: 0; 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
             color: var(--text-main); 
-            background: linear-gradient(
-                135deg,
-                color-mix(in srgb, var(--main-bg-color) 80%, white) 0%,
-                var(--main-bg-color) 50%,
-                color-mix(in srgb, var(--main-bg-color) 95%, black) 100%
-            );
+            background-color: var(--main-bg-color); 
             overflow-x: hidden; 
+            min-height: 100vh;
         }
         
-        /* 👑 修正: 白いフィルムが色を隠してしまっていた原因を解消（透明にする） */
+        /* 👑 改善適用: 白いフィルムが隠してしまっていた原因を解消（透明にする） */
         #bg-particles { 
             position: fixed; 
             top: 0; 
@@ -74,11 +81,9 @@
         .hero h2 { font-size: 1.8rem; color: var(--text-main); margin-bottom: 15px; }
         .hero p { font-size: 1rem; color: var(--text-sub); line-height: 1.8; }
 
-        /* 👑 フェードインアニメーション（スクロール連動） */
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* 👑 ツールカードのグリッドレイアウト */
         .tool-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 50px; }
         @media (min-width: 600px) { .tool-grid { grid-template-columns: 1fr 1fr; } }
 
@@ -92,12 +97,14 @@
         .tool-desc { font-size: 0.9rem; color: var(--text-sub); line-height: 1.6; }
         .tool-btn { margin-top: auto; padding-top: 15px; color: var(--sage-main); font-weight: bold; font-size: 0.9rem; }
 
-        /* 👑 SEO対策用テキストエリア */
         .seo-section { background: white; border-radius: 16px; padding: 30px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); line-height: 1.8; }
         .seo-section h3 { color: var(--sage-dark); font-size: 1.3rem; margin-top: 0; border-bottom: 2px solid var(--main-bg-color); padding-bottom: 10px; }
         
         .adsense-container { text-align: center; margin: 40px 0; min-height: 250px; background-color: rgba(255, 255, 255, 0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--sage-main); }
     </style>
+
+
+    
 </head>
 <body>
 
