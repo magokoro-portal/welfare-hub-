@@ -97,6 +97,11 @@ body {
 .btn-top { position: fixed; bottom: 20px; right: 20px; background-color: var(--sage-main); color: white; width: 50px; height: 50px; border-radius: 50%; border: none; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 1000; transition: transform 0.2s, background-color 0.2s; }
 .btn-top:hover { background-color: var(--sage-dark); transform: translateY(-3px); }
 .btn-top:active { transform: scale(0.95); }
+.donation-box { background-color: var(--card-bg); border: 1px solid rgba(135, 169, 156, 0.2); padding: 25px 20px; border-radius: 12px; text-align: center; margin-top: 40px; }
+.donation-title { color: var(--sage-dark); font-weight: bold; font-size: 1.1rem; margin-bottom: 10px; }
+.donation-text { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 20px; text-align: left; line-height: 1.7; }
+.btn-donation { display: inline-block; background-color: #ff9900; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.95rem; }
+</style>
 </style>
 
 </head>
@@ -265,6 +270,14 @@ body {
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
+        </div>
+
+         <div class="donation-box fade-in">
+            <div class="donation-title">☕ 運営へのあたたかいご支援</div>
+            <div class="donation-text">
+                このサイトが少しでもお役に立てたなら、運営継続のためにご支援（100円缶コーヒー1杯分でも）をいただけると非常に励みになります。いただいたご支援は、サイトの安定した運営維持等、と、ゆくゆくは福祉活動への思いに使わせていただきます。
+            </div>
+            <a href="https://ofuse.me/fbcb2675" class="btn-donation">🎁 開発者を支援する</a>
         </div>
 
     </div>
